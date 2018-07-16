@@ -7,7 +7,7 @@
     </div>
 
     <div class="rightImg">
-      <img style="width:200px;" src="../assets/Cell.png">
+      <img style="height:150px; margin-top: 25px; margin-bottom:auto" src="../assets/Cell.png">
     </div>
   </div>
 
@@ -29,6 +29,7 @@
   }
   h1, p {
     text-align: left;
+    margin-left: 20px;
   }
 
   .leftContent {

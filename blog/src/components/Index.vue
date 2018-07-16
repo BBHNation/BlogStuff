@@ -9,8 +9,16 @@
       <el-header class="header">
         header
       </el-header>
-      Main
       <BlogCell></BlogCell>
+      <BlogCell></BlogCell>
+      <BlogCell></BlogCell>
+      <BlogCell></BlogCell>
+      <BlogCell></BlogCell>
+      <BlogCell></BlogCell>
+      <BlogCell></BlogCell>
+      <el-footer>
+        footer
+      </el-footer>
     </el-main>
   </el-container>
 </template>
@@ -49,7 +57,7 @@
   padding: 0;
 }
 .header {
-  background-color: #666666;
+  background-color: #EBEBEB;
 }
 
 </style>
