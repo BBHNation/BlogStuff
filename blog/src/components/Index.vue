@@ -2,22 +2,26 @@
   <el-container class="container">
     <el-aside class="aside">
         <div class="myinfo">
-          <my-info></my-info>
+          <my-info/>
         </div>
     </el-aside>
     <el-main class="main">
-      <el-header class="header">
-        header
+      <el-header class="header" style="background-color: white">
+        <el-input
+          placeholder="请输入内容"
+          prefix-icon="el-icon-search"
+          v-model="input21" style="margin-top: 10px">
+        </el-input>
       </el-header>
-      <BlogCell></BlogCell>
-      <BlogCell></BlogCell>
-      <BlogCell></BlogCell>
-      <BlogCell></BlogCell>
-      <BlogCell></BlogCell>
-      <BlogCell></BlogCell>
-      <BlogCell></BlogCell>
-      <el-footer>
-        footer
+      <BlogCell/>
+      <BlogCell/>
+      <BlogCell/>
+      <BlogCell/>
+      <BlogCell/>
+      <BlogCell/>
+      <el-footer style="background-color: white">
+        <el-button round style="margin-top: 10px;">上一页</el-button>
+        <el-button round style="margin-top: 10px;">下一页</el-button>
       </el-footer>
     </el-main>
   </el-container>
@@ -48,16 +52,13 @@
 .myinfo {
   position: relative;
   top: 50%;
-  transform: translateY(-50%);
+  transform: translateY(-30%);
 }
 .main {
   background-color: #EBEBEB;
   height: 100vh;
   margin: 0;
   padding: 0;
-}
-.header {
-  background-color: #EBEBEB;
 }
 
 </style>
