@@ -1,13 +1,13 @@
 <template>
   <div class="BlogCell">
     <div class="leftContent">
-      <h1>Unity AR 体验记</h1>
-      <p>在 iOS 11 发布时，作为其重磅功能之一的 ARKit 就引起了我强烈的兴趣。在最初的 beta 版本放出后，我就第一时间下载更新，并开始研究它的应用方法。</p>
-      <p>1个月前发布</p>
+      <h1>{{ title }}</h1>
+      <p>{{ description }}</p>
+      <p>{{ dateDescrip }}</p>
     </div>
 
     <div class="rightImg">
-      <img style="height:150px; margin-top: 25px; margin-bottom:auto" src="../assets/Cell.png">
+      <img style="box-shadow: 5px 5px 5px #9B9B9B;border-radius: 8px; height:150px; width:150px; margin-top: 25px; margin-bottom:auto" v-bind:src="imgUrl">
     </div>
   </div>
 
@@ -15,8 +15,20 @@
 
 <script>
     export default {
-        name: "BlogCell"
+        name: "BlogCell",
+        data () {
+            return {
+                "title": this.content["title"],
+                "description": this.content["description"],
+                "dateDescrip": this.content["dateDescrip"],
+                "imgUrl": "https://dn-ssl-dw-blog.qbox.me/files/2017/09/light-sensor-connected-to-anduino.jpg"
+            }
+        },
+        props: {
+            content: Object
+        }
     }
+
 </script>
 
 <style scoped>
