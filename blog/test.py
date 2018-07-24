@@ -1,8 +1,10 @@
 # -*- coding:utf-8 -*-
 from flask import Flask
+from flask_cors import *
 import json
 
 app = Flask(__name__)
+CORS(app, supports_credentials=True)
 
 
 @app.route('/')
@@ -30,4 +32,5 @@ def getBlogList():
     return json.dumps(result)
 
 if __name__ == '__main__':
-  app.run()
+    app.debug = True
+    app.run()

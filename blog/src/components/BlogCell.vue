@@ -7,7 +7,7 @@
     </div>
 
     <div class="rightImg">
-      <img style="box-shadow: 5px 5px 5px #9B9B9B;border-radius: 8px; height:150px; width:150px; margin-top: 25px; margin-bottom:auto" v-bind:src="imgUrl">
+      <img class="imgContent" v-bind:src="imgUrl">
     </div>
   </div>
 
@@ -46,11 +46,20 @@
 
   .leftContent {
     float: left;
-    width: 70%;
+    width: 80%;
   }
   .rightImg {
     float: left;
-    width: 20%;
+    width: 10%;
+  }
+  .imgContent {
+    box-shadow: 5px 5px 5px #9B9B9B;
+    border-radius: 8px;
+    height: 150px;
+    width: 150px;
+    margin-top: 25px;
+    margin-bottom:auto;
+    margin-left: 20%;
   }
 
 </style>
