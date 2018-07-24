@@ -31,36 +31,11 @@
   import MyInfo from "./Myinfo";
   import BlogCell from "./BlogCell";
   export default {
+    name: "Index",
     components: {BlogCell, MyInfo},
     data () {
       return {
-        "blogList": [
-          {
-            title: "iOS动态库打包出现的问题",
-            description: "在打包动态库的时候，经常会出现，使用静态库冲突的问题，具体这个问题在网上的解决方案都是两者打包。在打包动态库的时候，经常会出现，使用静态库冲突的问题，具体这个问题在网上的解决方案都是两者打包。",
-            dateDescrip: "一个月前发布"
-          },
-          {
-            title: "一些iOS动态布局的问题",
-            description: "在打包动态库的时候，经常会出现，使用静态库冲突的问题，具体这个问题在网上的解决方案都是两者打包。在打包动态库的时候，经常会出现，使用静态库冲突的问题，具体这个问题在网上的解决方案都是两者打包。",
-            dateDescrip: "5天前发布"
-          },
-          {
-            title: "关于SpringBoot使用",
-            description: "在打包动态库的时候，经常会出现，使用静态库冲突的问题，具体这个问题在网上的解决方案都是两者打包。在打包动态库的时候，经常会出现，使用静态库冲突的问题，具体这个问题在网上的解决方案都是两者打包。",
-            dateDescrip: "3天前发布"
-          },
-          {
-            title: "VUE的开发入门",
-            description: "在打包动态库的时候，经常会出现，使用静态库冲突的问题，具体这个问题在网上的解决方案都是两者打包。在打包动态库的时候，经常会出现，使用静态库冲突的问题，具体这个问题在网上的解决方案都是两者打包。",
-            dateDescrip: "1小时前发布"
-          },
-          {
-            title: "VUE的开发入门",
-            description: "在打包动态库的时候，经常会出现，使用静态库冲突的问题，具体这个问题在网上的解决方案都是两者打包。在打包动态库的时候，经常会出现，使用静态库冲突的问题，具体这个问题在网上的解决方案都是两者打包。",
-            dateDescrip: "1小时前发布"
-          }
-        ],
+        "blogList": [],
         "search":""
       }
     },
@@ -71,7 +46,6 @@
 
     methods: {
       getBlogList: function () {
-        // let fly = new require("flyio");
         let Fly = require("flyio/src/node");
         let fly = new Fly;
         fly.config.baseURL = "http://127.0.0.1:5000/blog/";
@@ -81,17 +55,19 @@
           pageSize: 10
         }, {
           method: "POST"
-        }).then(function (response) {
+        }).then((response) => {
           console.log("hello input in loop");
           let data = JSON.parse(response.data);
           for (let json in data["data"]["blogList"]) {
-            console.log(json["blogId"]);
-            console.log(json["title"]);
-            console.log(json["subTitle"]);
-            console.log(json["publicDate"]);
-            console.log(json["dateDescrip"]);
+            let blog = data["data"]["blogList"][json];
+            let model = {
+              title: blog["title"],
+              description: blog["description"],
+              dateDescrip: blog["dateDescrip"]
+            };
+
+            this.blogList.push(model);
           }
-          console.log(data["data"])
         }).catch(function (err) {
           console.log(err)
         });
