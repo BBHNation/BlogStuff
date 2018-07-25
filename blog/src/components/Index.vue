@@ -16,7 +16,7 @@
 
 
       <div v-for="blog in blogList">
-        <BlogCell v-bind:content="blog"></BlogCell>
+        <BlogCell v-bind:content="blog" v-on:click="getDetail"></BlogCell>
       </div>
 
       <el-footer style="background-color: white">
@@ -45,6 +45,9 @@
     },
 
     methods: {
+      getDetail: function() {
+        console.log("detail")
+      },
       getBlogList: function () {
         let Fly = require("flyio/src/node");
         let fly = new Fly;
@@ -71,10 +74,6 @@
         }).catch(function (err) {
           console.log(err)
         });
-      },
-
-      decodeDataToBlog: function (json) {
-
       }
     }
   }

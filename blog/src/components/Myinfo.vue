@@ -1,15 +1,40 @@
 <template>
   <div class="myinfo">
     <img class="headImg" src="../assets/Head.png"/>
-    <p>白彬涵的博客</p>
-    <p>Hancock's Blog</p>
-    <p class="content">我是一个 22 岁的 homeschooler，爱好旅行以及一切富有创造性的事物，尤其是摄影、设计和编程。这个世界就是我的学校。学自己之所想所爱。自由的身心定能使我成为一个一直朝前行走的行者。</p>
+    <p>{{ blogName }}</p>
+    <p>{{ blogEnglishName }}</p>
+    <p class="content">{{ introContent }}</p>
   </div>
 </template>
 
 <script>
   export default {
-    name: 'MyInfo'
+    name: 'MyInfo',
+    data() {
+      return {
+        "blogName": "",
+        "blogEnglishName": "",
+        "introContent":""
+      }
+    },
+    created: function () {
+      this.getMyInfo()
+    },
+    methods: {
+      getMyInfo() {
+        let Fly = require("flyio/src/node");
+        let fly = new Fly;
+        fly.config.baseURL = "http://127.0.0.1:5000/blog/";
+        fly.post("getMyInfo").then((response) => {
+          let json = JSON.parse(response.data);
+          this.blogName = json["data"]["blogName"];
+          this.blogEnglishName = json["data"]["blogEnglishName"];
+          this.introContent = json["data"]["introContent"];
+        }).catch((err) => {
+          console.log(err)
+        })
+      }
+    }
   }
 </script>
 
