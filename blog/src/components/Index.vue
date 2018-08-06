@@ -1,7 +1,7 @@
 <template>
   <el-container class="container">
     <el-aside class="aside">
-        <div class="myinfo">
+        <div class="myInfo">
           <my-info/>
         </div>
     </el-aside>
@@ -49,7 +49,7 @@
   background: url('../assets/LeftBack.png');
   background-size: 100% 100%;
 }
-.myinfo {
+.myInfo {
   position: relative;
   top: 50%;
   transform: translateY(-30%);

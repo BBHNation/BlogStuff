@@ -18,7 +18,7 @@ public class app {
             System.out.print("command line runner");
             String[] names = context.getBeanDefinitionNames();
             for (String name : names) {
-                System.out.print(name);
+                System.out.println(name);
             }
         };
     }
