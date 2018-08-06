@@ -10,18 +10,18 @@
         <el-input
           placeholder="请输入内容"
           prefix-icon="el-icon-search"
-          v-model="input21" style="margin-top: 10px">
+          v-model="search" style="margin-top: 10px; width: 80%; float: left">
         </el-input>
       </el-header>
-      <BlogCell/>
-      <BlogCell/>
-      <BlogCell/>
-      <BlogCell/>
-      <BlogCell/>
-      <BlogCell/>
+
+
+      <div v-for="blog in blogList">
+        <BlogCell v-bind:content="blog" v-on:click="getDetail"></BlogCell>
+      </div>
+
       <el-footer style="background-color: white">
-        <el-button round style="margin-top: 10px;">上一页</el-button>
-        <el-button round style="margin-top: 10px;">下一页</el-button>
+        <el-button round style="margin-top: 10px; margin-right: 40px;">上一页</el-button>
+        <el-button round style="margin-top: 10px; margin-left: 40px;">下一页</el-button>
       </el-footer>
     </el-main>
   </el-container>
@@ -31,7 +31,51 @@
   import MyInfo from "./Myinfo";
   import BlogCell from "./BlogCell";
   export default {
-    components: {BlogCell, MyInfo}
+    name: "Index",
+    components: {BlogCell, MyInfo},
+    data () {
+      return {
+        "blogList": [],
+        "search":""
+      }
+    },
+
+    created: function() {
+      this.getBlogList();
+    },
+
+    methods: {
+      getDetail: function() {
+        console.log("detail")
+      },
+      getBlogList: function () {
+        let Fly = require("flyio/src/node");
+        let fly = new Fly;
+        fly.config.baseURL = "http://127.0.0.1:5000/blog/";
+        fly.post("getBlogList", {
+          keyword: "",
+          page: 0,
+          pageSize: 10
+        }, {
+          method: "POST"
+        }).then((response) => {
+          console.log("hello input in loop");
+          let data = JSON.parse(response.data);
+          for (let json in data["data"]["blogList"]) {
+            let blog = data["data"]["blogList"][json];
+            let model = {
+              title: blog["title"],
+              description: blog["description"],
+              dateDescrip: blog["dateDescrip"]
+            };
+
+            this.blogList.push(model);
+          }
+        }).catch(function (err) {
+          console.log(err)
+        });
+      }
+    }
   }
 </script>
 
@@ -52,10 +96,10 @@
 .myInfo {
   position: relative;
   top: 50%;
-  transform: translateY(-30%);
+  transform: translateY(-50%);
 }
 .main {
-  background-color: #EBEBEB;
+  background-color: white;
   height: 100vh;
   margin: 0;
   padding: 0;
