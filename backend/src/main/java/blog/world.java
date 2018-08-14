@@ -1,4 +1,4 @@
-package hello;
+package blog;
 
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
