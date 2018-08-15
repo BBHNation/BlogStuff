@@ -60,7 +60,8 @@
           method: "POST"
         }).then((response) => {
           console.log("hello input in loop");
-          let data = JSON.parse(response.data);
+          // let data = JSON.parse(response.data);
+          let data = response.data;
           for (let json in data["data"]["blogList"]) {
             let blog = data["data"]["blogList"][json];
             let model = {
