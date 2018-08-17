@@ -26,7 +26,8 @@
         let fly = new Fly;
         fly.config.baseURL = "http://127.0.0.1:5000/blog/";
         fly.post("getMyInfo").then((response) => {
-          let json = JSON.parse(response.data);
+          // let json = JSON.parse(response.data);
+          let json = response.data;
           this.blogName = json["data"]["blogName"];
           this.blogEnglishName = json["data"]["blogEnglishName"];
           this.introContent = json["data"]["introContent"];
