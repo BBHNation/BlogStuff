@@ -21,17 +21,43 @@
 	</parent>
 
 	<dependencies>
+        <!--spring boot web starter-->
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-web</artifactId>
 		</dependency>
 
-        <!-- https://mvnrepository.com/artifact/org.json/json -->
+        <!--这里加入单元测试模块-->
         <dependency>
-            <groupId>org.json</groupId>
-            <artifactId>json</artifactId>
-            <version>20180130</version>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-test</artifactId>
         </dependency>
+        <dependency>
+            <groupId>junit</groupId>
+            <artifactId>junit</artifactId>
+            <version>4.12</version>
+            <scope>test</scope>
+        </dependency>
+
+        <!--&lt;!&ndash; https://mvnrepository.com/artifact/org.json/json &ndash;&gt;-->
+        <!--<dependency>-->
+            <!--<groupId>org.json</groupId>-->
+            <!--<artifactId>json</artifactId>-->
+            <!--<version>20180130</version>-->
+        <!--</dependency>-->
+
+		<!--&lt;!&ndash;加入mybatis的支持&ndash;&gt;-->
+		<!--<dependency>-->
+			<!--<groupId>org.mybatis.spring.boot</groupId>-->
+			<!--<artifactId>mybatis-spring-boot-starter</artifactId>-->
+			<!--<version>1.1.1</version>-->
+		<!--</dependency>-->
+
+        <!--&lt;!&ndash;加入mysql connector&ndash;&gt;-->
+        <!--<dependency>-->
+            <!--<groupId>mysql</groupId>-->
+            <!--<artifactId>mysql-connector-java</artifactId>-->
+        <!--</dependency>-->
 
     </dependencies>
 
