@@ -1,5 +1,5 @@
 <template>
-  <div class="BlogCell">
+  <div v-bind:class="{ BlogCell: isBlogCell, BlogCell_show: isBlogCellShow, BlogCell_dis: isBlogCellDis}" @mouseout="showDown" @mouseover="showUp">
     <div class="leftContent">
       <h1>{{ title }}</h1>
       <p>{{ description }}</p>
@@ -21,8 +21,36 @@
                 "title": this.content["title"],
                 "description": this.content["description"],
                 "dateDescrip": this.content["dateDescrip"],
-                "imgUrl": "https://dn-ssl-dw-blog.qbox.me/files/2017/09/light-sensor-connected-to-anduino.jpg"
+                "imgUrl": "https://dn-ssl-dw-blog.qbox.me/files/2017/09/light-sensor-connected-to-anduino.jpg",
+                "isBlogCell": true,
+                "isBlogCellDis": false,
+                "isBlogCellShow": false
             }
+        },
+        methods: {
+          showDown: function () {
+            let self = this
+            self.isBlogCellDis = true
+            self.isBlogCellShow = false
+            /*
+            setTimeout(function() {
+              self.isBlogCellDis = false
+              self.isBlogCellShow = false
+            }, 1000)
+            */
+          },
+
+          showUp: function () {
+            let self = this
+            self.isBlogCellShow = true
+            self.isBlogCellDis = false
+            /*
+            setTimeout(function() {
+              self.isBlogCellDis = false
+              self.isBlogCellShow = false
+            }, 1000)
+            */
+          }
         },
         props: {
             content: Object
@@ -32,13 +60,45 @@
 </script>
 
 <style scoped>
+  @keyframes showUp {
+    from {
+      opacity: 0.6;
+    }
+    to {
+      opacity: 1.0;
+    }
+  }
+  @keyframes showDown {
+    from {
+      opacity: 1;
+    }
+    to {
+      opacity: 0.6;
+    }
+  }
+
   .leftContent, .rightImg {
     background-color: white;
   }
+  .BlogCell_show {
+    height: 200px;
+    background-color: white;
+    animation:  1s ease-out forwards showUp;
+  }
+
   .BlogCell {
     height: 200px;
     background-color: white;
+    opacity: 0.6;
   }
+  
+  .BlogCell_dis {
+    height: 200px;
+    background-color: white;
+    animation: 1s ease-out forwards showDown;
+  }
+
+
   h1, p {
     text-align: left;
     margin-left: 20px;
