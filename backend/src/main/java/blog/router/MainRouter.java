@@ -4,7 +4,6 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
-import java.lang.reflect.Array;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
@@ -36,11 +35,11 @@ public class MainRouter {
         return object;
     }
 
+    @RequestMapping(value = "/index", method = RequestMethod.GET)
+    public String index() {
+        return "index";
+    }
 
-//    @RequestMapping(value = {"/blog", "/", "/index"}, method = RequestMethod.GET)
-//    public String index() {
-//        return "index";
-//    }
 
     @RequestMapping(value = "/blog/getMyInfo", method = RequestMethod.POST)
     public Map<String, Object> myinfo() {

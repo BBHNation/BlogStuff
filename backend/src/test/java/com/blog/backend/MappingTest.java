@@ -1,9 +1,11 @@
 package com.blog.backend;
 
 import blog.App;
+import blog.dao.BlogMapper;
 import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.boot.test.web.client.TestRestTemplate;
 import org.springframework.boot.web.server.LocalServerPort;
@@ -33,6 +35,10 @@ public class MappingTest {
 
     private Class<Map<String, Object>> clazz;
 
+
+    @Autowired
+    private BlogMapper mapper;
+
     @Before
     public void setUp() throws MalformedURLException {
         String url = String.format("http://localhost:%d/", port);
@@ -48,6 +54,11 @@ public class MappingTest {
         responseEntity = template.exchange(finalUrl, HttpMethod.POST, entity, clazz);
 
         assertEquals(200, responseEntity.getBody().get("code"));
+    }
+
+    @Test
+    public void testInsertBlog() {
+        mapper.insert("题目", "副标题", "总结", "主要内容", "一小时以前");
     }
 
 }
