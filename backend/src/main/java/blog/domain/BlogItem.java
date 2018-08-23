@@ -1,5 +1,8 @@
 package blog.domain;
 
+import java.util.HashMap;
+import java.util.Map;
+
 public class BlogItem {
     private Integer blogId;
     private String title;
@@ -54,5 +57,16 @@ public class BlogItem {
 
     public void setDateString(String dateString) {
         this.dateString = dateString;
+    }
+
+    public Map<String, Object> toMap() {
+        Map<String, Object> item = new HashMap<>();
+        item.put("blogID", this.blogId);
+        item.put("title", this.title);
+        item.put("subTitle", this.subTitle);
+        item.put("description", this.summary);
+        item.put("dateDescrip", this.dateString);
+        item.put("blogImg", "/source/img.png");
+        return item;
     }
 }

@@ -6,12 +6,14 @@ import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Param;
 import org.apache.ibatis.annotations.Select;
 
+import java.util.LinkedList;
+
 @Mapper
 public interface BlogMapper {
-    @Select("SELECT * FROM blog")
-    BlogItem getAllBlogItem();
+    @Select("SELECT * FROM blogs")
+    LinkedList<BlogItem> getAllBlogItem();
 
-    @Insert("INSERT INTO blog (title, subTitle, summary, content, dateString) VALUES(#{title}, #{subTitle}, #{summary}, #{content}, #{dateString})")
+    @Insert("INSERT INTO blogs (title, subTitle, summary, content, dateString) VALUES(#{title}, #{subTitle}, #{summary}, #{content}, #{dateString})")
     int insert(@Param("title") String title,
                @Param("subTitle") String subTitle,
                @Param("summary") String summary,

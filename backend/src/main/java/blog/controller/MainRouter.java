@@ -1,21 +1,35 @@
-package blog.router;
+package blog.controller;
 
+import blog.domain.BlogItem;
+import blog.service.BlogService;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 @RestController
 public class MainRouter {
+    @Autowired
+    private BlogService blogService;
+
     @RequestMapping(value = "/blog/getBlogList", method = RequestMethod.POST)
     public Map<String, Object> getBlogList() {
         Map<String, Object> object = new HashMap<>();
         object.put("code", 200);
         object.put("message", "访问成功");
 
+
+        List<BlogItem> list = blogService.getAllBlogs();
+        ArrayList<Map<String, Object>> arr = new ArrayList<>();
+        for (BlogItem blog : list) {
+            arr.add(blog.toMap());
+        }
+        /*
         Map<String, Object> item = new HashMap<>();
         item.put("blogID", 123);
         item.put("title", "iOS 进阶");
@@ -23,11 +37,7 @@ public class MainRouter {
         item.put("description", "在 iOS 11 发布时，作为其重磅功能之一的 ARKit 就引起了我强烈的兴趣。在最初的 beta 版本放出后，我就第一时间下载更新，并开始研究它的应用方法。借助小时候掌握的建模技能和这么些年来的编程经验，轻松实现了这样的 AR 效果：");
         item.put("dateDescrip", "时间描述");
         item.put("blogImg", "/source/img.png");
-
-        ArrayList<Map<String, Object>> arr = new ArrayList<>();
-        for (int i = 0; i < 10; i++) {
-            arr.add(item);
-        }
+        */
 
         Map<String, Object> wrap = new HashMap<>();
         wrap.put("blogList", arr);
