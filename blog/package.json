@@ -2,7 +2,7 @@
   "name": "blog",
   "version": "1.0.0",
   "description": "a blog web",
-  "author": "baibinhan <baibinhan@cmiot.chinamobile.com>",
+  "author": "baibinhan <bai.szsy@qq.com>",
   "private": true,
   "scripts": {
     "dev": "webpack-dev-server --inline --progress --config build/webpack.dev.conf.js",
