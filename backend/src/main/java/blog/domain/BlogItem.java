@@ -10,6 +10,7 @@ public class BlogItem {
     private String summary;
     private String content;
     private String dateString;
+    private String imgUrl;
 
     public Integer getBlogId() {
         return blogId;
@@ -59,6 +60,14 @@ public class BlogItem {
         this.dateString = dateString;
     }
 
+    public String getImgUrl() {
+        return imgUrl;
+    }
+
+    public void setImgUrl(String imgUrl) {
+        this.imgUrl = imgUrl;
+    }
+
     public Map<String, Object> toMap() {
         Map<String, Object> item = new HashMap<>();
         item.put("blogID", this.blogId);
@@ -66,7 +75,8 @@ public class BlogItem {
         item.put("subTitle", this.subTitle);
         item.put("description", this.summary);
         item.put("dateDescrip", this.dateString);
-        item.put("blogImg", "/source/img.png");
+        String img = this.imgUrl == null ? "127.0.0.1:5000/source/img.png" : this.imgUrl;
+        item.put("blogImg", img);
         return item;
     }
 }
