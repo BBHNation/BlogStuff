@@ -5,7 +5,12 @@ import App from './App'
 import router from './router'
 import Myinfo from './components/Myinfo'
 import ElementUI from 'element-ui';
+import VueShowdown from 'vue-showdown'
 import 'element-ui/lib/theme-chalk/index.css';
+
+Vue.use(VueShowdown, {
+  emoji: true
+})
 
 Vue.config.productionTip = false
 Vue.use(ElementUI)

@@ -14,7 +14,9 @@
         <!-- </el-input> -->
       </el-header>
 
-      <div v-for="blog in blogList">
+      <VueShowdown markdown="`vue-showdown` is easy to use :kissing_heart:"/>
+      
+      <div v-for="blog in blogList" :key="blog.title">
         <BlogCell v-on:click="getDetail" v-bind:content="blog"></BlogCell>
       </div>
 
