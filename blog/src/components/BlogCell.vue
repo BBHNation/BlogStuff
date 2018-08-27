@@ -21,7 +21,7 @@
                 "title": this.content["title"],
                 "description": this.content["description"],
                 "dateDescrip": this.content["dateDescrip"],
-                "imgUrl": "https://dn-ssl-dw-blog.qbox.me/files/2017/09/light-sensor-connected-to-anduino.jpg",
+                "imgUrl": this.content["blogImg"],
                 "isBlogCell": true,
                 "isBlogCellDis": false,
                 "isBlogCellShow": false

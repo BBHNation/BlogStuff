@@ -67,7 +67,8 @@
             let model = {
               title: blog["title"],
               description: blog["description"],
-              dateDescrip: blog["dateDescrip"]
+              dateDescrip: blog["dateDescrip"],
+              blogImg: blog["blogImg"]
             };
 
             this.blogList.push(model);
