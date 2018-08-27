@@ -83,19 +83,20 @@
   .BlogCell_show {
     height: 200px;
     background-color: white;
-    animation:  1s ease-out forwards showUp;
+    animation:  0.3s ease-out forwards showUp;
   }
 
   .BlogCell {
     height: 200px;
     background-color: white;
     opacity: 0.6;
+    cursor: pointer;
   }
   
   .BlogCell_dis {
     height: 200px;
     background-color: white;
-    animation: 1s ease-out forwards showDown;
+    animation: 0.3s ease-out forwards showDown;
   }
 
 
@@ -114,7 +115,7 @@
   }
   .imgContent {
     box-shadow: 5px 5px 5px #9B9B9B;
-    border-radius: 8px;
+    border-radius: 5px;
     height: 150px;
     width: 150px;
     margin-top: 25px;

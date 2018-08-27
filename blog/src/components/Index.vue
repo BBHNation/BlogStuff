@@ -7,21 +7,21 @@
     </el-aside>
     <el-main class="main">
       <el-header class="header" style="background-color: white">
-        <el-input
-          placeholder="请输入内容"
-          prefix-icon="el-icon-search"
-          v-model="search" style="margin-top: 10px; width: 80%; float: left">
-        </el-input>
+        <!-- <el-input -->
+          <!-- placeholder="请输入内容" -->
+          <!-- prefix-icon="el-icon-search" -->
+          <!-- v-model="search" style="margin-top: 10px; width: 80%; float: left"> -->
+        <!-- </el-input> -->
       </el-header>
 
-
       <div v-for="blog in blogList">
-        <BlogCell v-bind:content="blog" v-on:click="getDetail"></BlogCell>
+        <BlogCell v-on:click="getDetail" v-bind:content="blog"></BlogCell>
       </div>
 
       <el-footer style="background-color: white">
-        <el-button round style="margin-top: 10px; margin-right: 40px;">上一页</el-button>
-        <el-button round style="margin-top: 10px; margin-left: 40px;">下一页</el-button>
+        <!-- <el-button round style="margin-top: 10px; margin-right: 40px;">上一页</el-button> -->
+        <!-- <el-button round style="margin-top: 10px; margin-left: 40px;">下一页</el-button> -->
+        <p>bbh's blog</p>
       </el-footer>
     </el-main>
   </el-container>
